@@ -9,4 +9,3 @@ fixtures:
     suite_description: "{{ ERRATUM.builds[0] }} functional testing"
   context:
     distro: "{{ COMPOSE.id }}"
-  compose: "{{ COMPOSE.id }}"
