@@ -1,0 +1,12 @@
+issues:
+  - summary: "ER#{{ ERRATUM.id }} Errata Workflow: Smoke"
+    id: ew_smoke
+    parent_id: ew_checklist
+    type: subtask
+    assignee: "{{ ERRATUM.people_assigned_to }}"
+    description: |
+    
+	Actions:
+	Run all smoke tests available.
+	Create smoke test if none available.
+	Investigate all incidents (unexpected results)

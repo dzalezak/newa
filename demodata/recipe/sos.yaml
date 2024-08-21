@@ -1,0 +1,15 @@
+fixtures:
+  tmt:
+    url: https://pkgs.devel.redhat.com/git/tests/sos
+    ref: master
+    path: plan
+    plan: tier1 | tier2-3 | upstream-wrappers | others
+  reportportal:
+    launch_name: "{{ ERRATUM.components[0] }}"
+    suite_description: "{{ ERRATUM.builds[0] }} functional testing"
+  context:
+    distro: "{{ COMPOSE.id }}"
+    
+dimensions:
+  architectures:
+   

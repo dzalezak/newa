@@ -1,0 +1,24 @@
+include:
+  - demodata/issue-config/errata_workflow/rpmdiff.yaml
+  - demodata/issue-config/errata_workflow/tps_rpmtest.yaml
+  - demodata/issue-config/errata_workflow/tps_srpmtest.yaml
+  - demodata/issue-config/errata_workflow/filelist.yaml
+  - demodata/issue-config/errata_workflow/specfile.yaml
+  - demodata/issue-config/errata_workflow/patches.yaml
+  - demodata/issue-config/errata_workflow/bug_priority.yaml
+  - demodata/issue-config/errata_workflow/regresion.yaml
+  - demodata/issue-config/errata_workflow/smoke.yaml
+  - demodata/issue-config/errata_workflow/integration.yaml
+  - demodata/issue-config/errata_workflow/performance.yaml
+  - demodata/issue-config/errata_workflow/docs.yaml
+  - demodata/issue-config/errata_workflow/cdn_rhn.yaml
+  - demodata/issue-config/errata_workflow/summary.yaml
+
+issues:
+  - summary: "ER#{{ ERRATUM.id }} Errata Workflow Checklist - respin {{ ERRATUM.respin_count }}"
+    id: ew_checklist
+    parent_id: errata_epic
+    type: task
+    assignee: "{{ ERRATUM.people_assigned_to }}"
+    description: "Perform activities from the Errata Workflow Checklist on ER#{{ ERRATUM.id }} build(s) {{ ERRATUM.builds|join(' ') }}"
+    on_respin: close

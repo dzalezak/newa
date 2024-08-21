@@ -1,0 +1,29 @@
+issues:
+  - summary: "ER#{{ ERRATUM.id }} Errata Workflow: TPS-rpmtest"
+    id: ew_tps-rpmtest
+    parent_id: ew_checklist
+    type: subtask
+    assignee: "{{ ERRATUM.people_assigned_to }}"
+    description: |
+    
+	Actions: 
+      	Test
+	Step 1.
+
+	Ordinary package:
+
+	Investigate TPS results.
+
+	If you are waiving some TPS result always add a note about explanation why you have waived it.
+
+	Verify that package dependencies and obsoletes are correctly defined in .spec file (especially for Rebased/New components)
+
+	New package:
+
+	TPS does not update packages; instead, it tests whether it is possible to install and uninstall the package.
+	
+	Expected Results:
+	Test
+	Step 1.
+
+	All TPS-rpmtest jobs should PASS.

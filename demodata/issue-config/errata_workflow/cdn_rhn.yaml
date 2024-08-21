@@ -1,0 +1,12 @@
+issues:
+  - summary: "ER#{{ ERRATUM.id }} Errata Workflow: CDN/RHN"
+    id: ew_cdn_rhn
+    parent_id: ew_checklist
+    type: subtask
+    assignee: "{{ ERRATUM.people_assigned_to }}"
+    description: |
+    
+	Actions:
+	Request signatures if not done automatically.
+	Push packages to stage environment.
+	Make sure all TPS-RHNQA jobs pass. (for ASYNC and z stream. Not needed for minor releases)

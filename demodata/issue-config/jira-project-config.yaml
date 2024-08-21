@@ -1,0 +1,10 @@
+project: BASEQESEC
+#group: Red Hat Bugzilla Authorized
+
+transitions:
+  closed:
+    - Done
+    - Dropped
+    - Completed
+  dropped:
+    - Dropped

@@ -1,0 +1,10 @@
+issues:
+  - summary: "ER#{{ ERRATUM.id }} Errata Workflow: Performance"
+    id: ew_performance
+    parent_id: ew_checklist
+    type: subtask
+    assignee: "{{ ERRATUM.people_assigned_to }}"
+    description: |
+    
+	Actions:
+	At least try to check differences between old and new version

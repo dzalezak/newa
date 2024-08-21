@@ -1,0 +1,16 @@
+issues:
+  - summary: "ER#{{ ERRATUM.id }} Errata Workflow: Patches"
+    id: ew_patches
+    parent_id: ew_checklist
+    type: subtask
+    assignee: "{{ ERRATUM.people_assigned_to }}"
+    description: |
+    
+	Actions:
+	
+	Check that patches are in place and being applied correctly.
+	Quick patch review: examine the difference between the old and the new source files.
+
+	tps-diff-sources might come in handy.
+
+	Also *-rebuild.log.gz (on stable systems) created during TPS srpmtest contain rpmbuild log which shows which patches have been applied.

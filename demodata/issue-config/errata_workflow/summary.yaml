@@ -1,0 +1,15 @@
+issues:
+  - summary: "ER#{{ ERRATUM.id }} Errata Workflow: Summary"
+    id: ew_summary
+    parent_id: ew_checklist
+    type: subtask
+    assignee: "{{ ERRATUM.people_assigned_to }}"
+    description: |
+    
+	Actions:
+	Beaker: All created tests submitted to git and Beaker repository.
+	TCMS: New created testcases added to TCMS test plan(s).
+	Bugs: Links to test cases added to the external tracker field of relevant bugs.
+	Job tags: All important Beaker jobs tagged as "audit"
+
+	Add a comment in Errata Tool with link to TCMS test run report as the final summary

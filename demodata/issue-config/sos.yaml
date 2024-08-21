@@ -1,0 +1,22 @@
+include:
+ - demodata/issue-config/jira-project-config.yaml
+ - demodata/issue-config/errata-workflow-checklist.yaml
+
+issues:
+
+ - summary: "Sos erratum ER#{{ ERRATUM.id }} testing"
+   description: "{{ ERRATUM.url }}\n{{ ERRATUM.components|join(' ') }}"
+   assignee: '{{ ERRATUM.people_assigned_to }}'
+   type: epic
+   id: errata_epic
+   newa_id: "ER#{{ ERRATUM.id }}"
+   on_respin: keep
+
+ - summary: "Sanity and regression testing - respin {{ ERRATUM.respin_count }}"
+   description: "Run all automated tests for build(s) {{ ERRATUM.builds|join(' ') }}"
+   assignee: '{{ ERRATUM.people_assigned_to }}'
+   type: task
+   id: task_regression
+   parent_id: errata_epic
+   on_respin: close
+   #job_recipe: https://gitlab.cee.redhat.com/baseos-qe/newa/-/raw/main/demodata/recipe/libica.yaml

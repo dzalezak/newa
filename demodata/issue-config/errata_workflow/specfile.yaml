@@ -1,0 +1,14 @@
+issues:
+  - summary: "ER#{{ ERRATUM.id }} Errata Workflow: Spec file"
+    id: ew_specfile
+    parent_id: ew_checklist
+    type: subtask
+    assignee: "{{ ERRATUM.people_assigned_to }}"
+    description: |
+    
+	Actions: 
+      	
+	Go through spec file, check there are no extra patches being applied, check for any possible problems
+	Check if the Summary and Description fields are up to date for all rpms
+	If you find any bug, link it to this test case as an example
+	Presentation about spec file: http://wiki.test.redhat.com/BaseOs/Projects/Presentations/SrpmAndSpecFileStructureAndRpmBuilding

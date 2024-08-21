@@ -1,0 +1,21 @@
+issues:
+  - summary: "ER#{{ ERRATUM.id }} Errata Workflow: TPS-srpmtest"
+    id: ew_tps-srpmtest
+    parent_id: ew_checklist
+    type: subtask
+    assignee: "{{ ERRATUM.people_assigned_to }}"
+    description: |
+    
+	Actions:
+	Test
+	Step 1.
+
+	Investigate TPS-srpmtest results.
+
+	If you are waiving some TPS result always add a note about explanation why you have waived it.
+	
+	Expected Results:
+	Test
+	Step 1.
+
+	All TPS-srpmtest jobs should PASS.

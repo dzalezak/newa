@@ -1,0 +1,11 @@
+issues:
+  - summary: "ER#{{ ERRATUM.id }} Errata Workflow: Regression"
+    id: ew_regression
+    parent_id: ew_checklist
+    type: subtask
+    assignee: "{{ ERRATUM.people_assigned_to }}"
+    description: |
+    
+	Actions:
+	Run all available regression tests
+	Investigate all incidents (unexpected results)

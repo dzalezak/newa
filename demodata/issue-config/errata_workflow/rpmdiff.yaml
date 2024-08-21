@@ -1,0 +1,33 @@
+issues:
+  - summary: "ER#{{ ERRATUM.id }} Errata Workflow: RPMdiff"
+    id: ew_rpmdiff
+    type: subtask
+    parent_id: ew_checklist
+    assignee: "{{ ERRATUM.people_assigned_to }}"
+    description: | 
+    
+	Actions: 
+     	NOTE: Errata Tool does not mark the RPMDiff waivers as needing inspection even if no inspection was performed. Always check the RPMDiff tool to check if the inspection is necessary!
+	In all cases, checks that pass the review should be marked with "approved", ones that fail the sanity checks should be marked as "rejected".
+
+	Ordinary package:
+
+	Check whether the old version used in the comparison is really the latest build in the given release.  If it is not, or if nothing was used as the old version, report the problem to errata-admin@redhat.com.
+	Check whether developer's waivers are sane. ABI changes and Execshield tests are most critical.
+
+	If you find a bug via RPMdiff, place it on the examples page. On every RPMdiff result page, there is a link pointing to the Intranet page with examples.
+
+	 Suspicious results (waivers) for RPMDiff tests ABI symbols and DT_NEEDED should be tested by explicit trying to rebuild any potentially affected components. See the following manual test case for reference: Rebuilding nss, nspr and nss involved packages.
+
+	Rebased package:
+
+	Check whether the old version used in the comparison is really the latest build in the given release.  If it is not, or if nothing was used as the old version, report the problem to errata-admin@redhat.com.
+	ABI must not change. Tier4 packages are an exception, though.
+
+	Deep focus on unapplied patches. Use the tps-diff-sources tool if you are not sure the fix has been preserved.
+
+	 New package:
+
+	RPMdiff runs in a lint mode - it does not compare packages, it only performs packaging sanity tests (analysis).
+
+	If the developers waives the error with "Changes applied upstream" message, ask for a pointer where the changes have been applied (upstream bugzilla, link to commit, changelog) and add the relevant info to errata comments, or best - directly to the RPMdiff comments.

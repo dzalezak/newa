@@ -1,0 +1,11 @@
+issues:
+  - summary: "ER#{{ ERRATUM.id }} Errata Workflow: Integration"
+    id: ew_user
+    parent_id: ew_checklist
+    type: subtask
+    assignee: "{{ ERRATUM.people_assigned_to }}"
+    description: |
+    
+	Actions:
+	Test the package with dependent packages.
+	Check for possible ABI / API changes.

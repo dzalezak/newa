@@ -1,0 +1,15 @@
+issues:
+  - summary: "ER#{{ ERRATUM.id }} Errata Workflow: Test all bugs by priority"
+    id: ew_bug-priority
+    parent_id: ew_checklist
+    type: subtask
+    assignee: "{{ ERRATUM.people_assigned_to }}"
+    description: |
+    
+	Actions:
+    	
+	Investigate bug reports and eventually clarify with developer or reporter how to test instructions.
+	Create both manual and automated test cases, add to relevant plans.
+
+	Make sure that SELinux is in Enforing mode while testing.
+	For checking AVC messages you can use AVC Check.

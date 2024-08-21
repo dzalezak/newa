@@ -1,0 +1,16 @@
+issues:
+  - summary: "ER#{{ ERRATUM.id }} Errata Workflow: Documentation"
+    id: ew_docs
+    parent_id: ew_checklist
+    type: subtask
+    assignee: "{{ ERRATUM.people_assigned_to }}"
+    description: |
+    
+	Actions:
+	Note: some components have documentation bundled separately in a subpackage (for example suitesparse and suitesparse-doc)
+
+	Check man pages - typos, incompatible options, vague explanations.
+	Check the output --help or -h for all the binaries that are included in the errata packages.
+	Examine documentation: check /usr/share/doc/PACKAGE_NAME-VERSION (/usr/share/doc/PACKAGE_NAME on rhel-8). Note that every subpackage can have its own directory there.
+	Check that a copy of the license for the software is present in /usr/share/doc/PACKAGE_NAME-VERSION (or /usr/share/licenses/PACKAGE_NAME). The license file, eg. COPYING, COPYRIGHT or LICENSE, ought to be part of the main package, and does not have to be included in the subpackages.
+	Use existing tools: Options Comparator, File Blind, Man Page Corrector

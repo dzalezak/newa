@@ -1,0 +1,31 @@
+issues:
+  - summary: "ER#{{ ERRATUM.id }} Errata Workflow: File Lists"
+    id: ew_filelist
+    parent_id: ew_checklist
+    type: subtask
+    assignee: "{{ ERRATUM.people_assigned_to }}"
+    description: |
+    
+	Actions:			
+
+	Ordinary package:
+	Open the Builds tab in the erratum and examine the way the RPMs are distributed among the individual variants and architectures. Find the previous erratum for the given component in the same RHEL Y-stream and compare the two file lists. Normally, there should not be any difference between them save for the greater release or version. You can also check the way the packages are currently distributed in RHN by running the following command in the TPS directory:
+
+	/mnt/qa/scratch/rbiba/tps-utils/tps-current-packages
+
+
+	(This is especially useful if there is no previous erratum.) If there is a difference between in the file lists and it is expected (requested in a bug report), double-check that each package appears in the right location (variant, architecture etc.).
+
+	For comparing which architectures should be in the Builds, you can use the product pages:
+	https://pp.engineering.redhat.com/pp/product/rhel/overview
+	Select the correct rhel version on the left. Then select correct type in the header of the table. You will see which arches should be available for the rhel variants. (i386 and i686 are the same, the correct type will be in the suffix of the package)
+	The blue field in the Builds tab shows packages which have been built but are not used.
+
+	For detailed information about how to diagnose file list problems see http://wiki.test.redhat.com/Faq/Tps/DiagnosingTpsFileListProblems.
+	New subpackage:
+	If a new subpackage is added, which can be seen if tps-which says that the  number of new packages is greater than the number of old packages, make  sure the new packages correctly require the exact same NVR of the main  package. Backstory and more information is here:  https://wiki.test.redhat.com/Faq/ErrataWorkflow/ChecklistTestTemplate#SpecialCaseNewSubpackage
+	New package:
+	Ask  Release Engineering to double-check the errata file list. It must be clear for which variants and architectures the packages will be shipped, and which (sub)packages will be multilib.
+	_______________________________________________
+	Also you can use tool compare_errata_channels and compare_errata_builds <new> <old>:
+	https://wiki.test.redhat.com/jblazek/Projects/compare_errata_channels
