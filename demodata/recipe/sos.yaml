@@ -2,7 +2,7 @@ fixtures:
   tmt:
     url: https://pkgs.devel.redhat.com/git/tests/sos
     ref: master
-    path: plan
+    path: plans
     plan: tier2-3
   reportportal:
     launch_name: "{{ ERRATUM.components[0] }}"
