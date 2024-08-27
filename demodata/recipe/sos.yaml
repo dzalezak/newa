@@ -3,9 +3,44 @@ fixtures:
     url: https://pkgs.devel.redhat.com/git/tests/sos
     ref: master
     path: plan
-    plan: tier1
+    plan: tier2-3
   reportportal:
     launch_name: "{{ ERRATUM.components[0] }}"
     suite_description: "{{ ERRATUM.builds[0] }} functional testing"
   context:
     distro: "{{ COMPOSE.id }}"
+    
+dimensions:
+  architectures:
+    - testingfarm:
+        cli_args: "--arch x86_64"
+    - testingfarm:
+        cli_args: "--arch ppc64le"
+    - testingfarm:
+        cli_args: "--arch aarch64"
+  builds:
+    - when: COMPOSE.id is match("RHEL-8.*")
+      compose: RHEL-8.10.0-Nightly
+      testingfarm:
+        cli_args: "--redhat-brew-build 62978387"
+      reportportal:
+        suite_description: "NEW"
+    - when: COMPOSE.id is match("RHEL-8.*")
+      compose: RHEL-8.10.0-Nightly
+      testingfarm:
+        cli_args: "--redhat-brew-build 61119272"
+      reportportal:
+        suite_description: "OLD"
+    - when: COMPOSE.id is match("RHEL-9.*")
+      compose: RHEL-9.4.0-Nightly
+      testingfarm:
+        cli_args: "--redhat-brew-build 62975383"
+      reportportal:
+        suite_description: "NEW"
+    - when: COMPOSE.id is match("RHEL-9.*")
+      compose: RHEL-9.4.0-Nightly
+      testingfarm:
+        cli_args: "--redhat-brew-build 61120221"
+      reportportal:
+        suite_description: "OLD"
+    
