@@ -12,6 +12,7 @@ fixtures:
   when: ARCH in ['x86_64', 'ppc64le', 'aarch64']
 
 dimensions:
+  matrix:
     - when: COMPOSE.id is match("RHEL-8.*")
       compose: RHEL-8.10.0-Nightly
       testingfarm:
