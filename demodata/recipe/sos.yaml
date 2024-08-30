@@ -9,15 +9,9 @@ fixtures:
     suite_description: "{{ ERRATUM.builds[0] }} functional testing"
   context:
     distro: "{{ COMPOSE.id }}"
-    
+  when: ARCH in "x86_64, ppc64le, aarch64"
+
 dimensions:
-  architectures:
-    - testingfarm:
-        cli_args: "--arch x86_64"
-    - testingfarm:
-        cli_args: "--arch ppc64le"
-    - testingfarm:
-        cli_args: "--arch aarch64"
   builds:
     - when: COMPOSE.id is match("RHEL-8.*")
       compose: RHEL-8.10.0-Nightly
