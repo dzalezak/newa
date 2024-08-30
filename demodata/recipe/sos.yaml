@@ -9,7 +9,7 @@ fixtures:
     suite_description: "{{ ERRATUM.builds[0] }} functional testing"
   context:
     distro: "{{ COMPOSE.id }}"
-  when: ARCH in "x86_64, ppc64le, aarch64"
+  when: ARCH in [x86_64, ppc64le, aarch64]
 
 dimensions:
     - when: COMPOSE.id is match("RHEL-8.*")
