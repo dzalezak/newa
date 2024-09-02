@@ -5,7 +5,7 @@ fixtures:
     path: plans
     plan: tier2-3
   reportportal:
-    launch_name: "{{ ERRATUM.components[0] }}"
+    launch_name: "ER#{{ ERRATUM.id }} - {{ ERRATUM.builds[0] }}"
     suite_description: "{{ ERRATUM.builds[0] }} functional testing"
   context:
     distro: "{{ COMPOSE.id }}"
